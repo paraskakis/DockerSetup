@@ -28,7 +28,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
 RUN npm update
 RUN npm install -g express
 RUN npm install -g mocha
-#RUN npm install -g nodemon
+RUN npm install -g nodemon
 
 #Install Nginx
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nginx
