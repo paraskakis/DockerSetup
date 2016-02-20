@@ -1,9 +1,15 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.10
 
 MAINTAINER Emmanuel Paraskakis <paraskakis@gmail.com>
 
+#Install apt-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install apt-utils
+
 #Update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update
+
+#Install sudo
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install sudo
 
 #Install Wget
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install wget
@@ -18,8 +24,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y install git
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nano
 
 #Install Node
-RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+#RUN curl -sL https://deb.nodesource.com/setup | sudo bash -
+#RUN DEBIAN_FRONTEND=noninteractive apt-get -y install nodejs
+RUN curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+RUN DEBIAN_FRONTEND=noninteractive sudo apt-get install --yes nodejs
 
 #Install build essentials
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install build-essential openssl libssl-dev python
